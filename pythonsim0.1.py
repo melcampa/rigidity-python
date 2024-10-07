@@ -95,7 +95,6 @@ def simulate_with_visualization(edges, steps=100, interval=50):
     plt.show()
 
 # Example usage
-np.random.seed(42)
 
 # Number of edges
 num_edges = 5
