@@ -68,7 +68,7 @@ def calculate_average_distance(edges):
             distances.append(distance)
     return np.mean(distances) if distances else 0
 
-def simulate_with_visualization(edges, steps=100, interval=50, stability_threshold=0.01, save_path='animation.gif'):
+def simulate_with_visualization(edges, steps=1000, interval=50, stability_threshold=0.01, save_path='animation.gif'):
     """Simulate the motion of the edges with silent visualization, saved as a GIF using Pillow."""
     fig, ax = plt.subplots()
     ax.set_xlim(-10, 10)
@@ -119,14 +119,16 @@ def simulate_with_visualization(edges, steps=100, interval=50, stability_thresho
     # Save animation as a GIF using Pillow
     ani.save(save_path, writer='pillow', dpi=100)  # Use 'pillow' for saving as GIF
 
+    #plt.show()
     plt.close(fig)  # Close the plot after saving the animation
 
     return results  # Return results
 
-num_edges = 20  
+num_edges = 10
+
 for i in range(10):  # Running 10 simulations
-    edges = [Edge(start=[np.random.uniform(-10, 10), np.random.uniform(-10, 10)]) for _ in range(num_edges)]
-    results = simulate_with_visualization(edges, steps=100, interval=50, save_path=f'C:/Users/chipr/OneDrive/Desktop/sim/rigidity-python/results/animation_{i+1}.gif')
+    edges = [Edge(start=[np.random.uniform(-10, 10), np.random.uniform(-10, 10)], separation_distance=3.0) for _ in range(num_edges)]
+    results = simulate_with_visualization(edges, steps=1000, interval=50, save_path=f'C:/Users/chipr/OneDrive/Desktop/sim/rigidity-python/results/animation_{i+1}.gif')
 
     # Create a DataFrame for results and save to CSV
     results_df = pd.DataFrame(results, columns=['Iteration', 'Average Distance'])

@@ -31,14 +31,14 @@ for i, df in enumerate(dataframes):
     sampled_df = df[df['Iteration'] % 10 == 0]
     plt.scatter(sampled_df['Iteration'], sampled_df['Average Distance'], label=f'Experiment {i + 1}', alpha=0.6)
 
-    print(f"Plotted data from Experiment {i + 1} with {len(df)} data points.")
+    #print(f"Plotted data from Experiment {i + 1} with {len(df)} data points.")
 
 # Set plot labels and title
 plt.xlabel('Iteration')
 plt.ylabel('Average Distance')
 plt.title('Average Distance Over Iterations for Multiple Experiments')
 plt.xlim(-10, 99)  # Set x-axis limits based on the number of iterations
-plt.ylim(-10, 30)  # Set y-axis limits based on the maximum average distance
+plt.ylim(4, 13)  # Set y-axis limits based on the maximum average distance
 plt.grid(True)
 
 # Show the plot
